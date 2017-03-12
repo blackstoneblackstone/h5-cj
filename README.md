@@ -17,11 +17,10 @@
 ![](https://github.com/lihongbin100/h5-cj/blob/master/doc/code.png)
 
 ## UI设计
-
-![](https://github.com/lihongbin100/h5-cj/blob/master/doc/h1.jpeg)
-![](https://github.com/lihongbin100/h5-cj/blob/master/doc/h2.jpeg)
-![](https://github.com/lihongbin100/h5-cj/blob/master/doc/h3.jpeg)
-![](https://github.com/lihongbin100/h5-cj/blob/master/doc/h4.jpeg)
-![](https://github.com/lihongbin100/h5-cj/blob/master/doc/h5.jpeg)
-![](https://github.com/lihongbin100/h5-cj/blob/master/doc/h6.jpeg)
-![](https://github.com/lihongbin100/h5-cj/blob/master/doc/h7.jpeg)
+<img src="https://github.com/lihongbin100/h5-cj/blob/master/doc/h1.jpeg" width="200px">
+<img src="https://github.com/lihongbin100/h5-cj/blob/master/doc/h2.jpeg" width="200px">
+<img src="https://github.com/lihongbin100/h5-cj/blob/master/doc/h3.jpeg" width="200px">
+<img src="https://github.com/lihongbin100/h5-cj/blob/master/doc/h4.jpeg" width="200px">
+<img src="https://github.com/lihongbin100/h5-cj/blob/master/doc/h5.jpeg" width="200px">
+<img src="https://github.com/lihongbin100/h5-cj/blob/master/doc/h6.jpeg" width="200px">
+<img src="https://github.com/lihongbin100/h5-cj/blob/master/doc/h7.jpeg" width="200px">
