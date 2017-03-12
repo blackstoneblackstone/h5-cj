@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+刷流量中
+    <script>
+    var _mtac = {"performanceMonitor":1};
+    (function() {
+        var mta = document.createElement("script");
+        mta.src = "http://pingjs.qq.com/h5/stats.js?v2.0.2";
+        mta.setAttribute("name", "MTAH5");
+        mta.setAttribute("sid", "500387182");
+        mta.setAttribute("cid", "500388882");
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(mta, s);
+        setTimeout(function () {
+            MtaH5.clickStat('msgshare');
+            MtaH5.clickStat('timelineshare');
+        },300);
+    })();
+
+</script>
+
+</body>
+</html>
