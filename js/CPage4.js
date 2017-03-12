@@ -7,6 +7,8 @@ function CPage4() {
     var playState = false;
     var _page4, container, _p4shan1, shanTw1, shanTw2, textInt, _p4shan2, lineContainer, text, lineContainer1, text1, animation, animation1, p4bg;
     this.init = function () {
+        document.getElementById("music").pause();
+        $("#musicbtn").hide();
         container = new createjs.Container();
         p4bg = createBitmap(s_oSpriteLibrary.getSprite('p4bg'));
         container.addChild(p4bg);
@@ -174,7 +176,7 @@ function CPage4() {
         _p4shan1 = createBitmap(s_oSpriteLibrary.getSprite('p4shan'));
         _p4shan2 = createBitmap(s_oSpriteLibrary.getSprite('p4shan'));
         _p4shan1.y = CANVAS_HEIGHT - 485;
-        _p4shan1.x = -1500;
+        _p4shan1.x = 0;
         _p4shan2.x = 0;
         _p4shan2.y = CANVAS_HEIGHT - 485;
         container.addChild(_p4shan1);
@@ -184,16 +186,6 @@ function CPage4() {
         _p4huoche.x = 180;
         container.addChild(_p4huoche);
 
-        shanTw1 = createjs.Tween.get(_p4shan1, {loop: true}).to({
-            x: 0
-        }, 3000, createjs.Ease.linear).call(function () {
-
-        });
-        shanTw2 = createjs.Tween.get(_p4shan2, {loop: true}).to({
-            x: 1500
-        }, 3000, createjs.Ease.linear).call(function () {
-
-        });
 
 
         var data = {
@@ -239,9 +231,20 @@ function CPage4() {
         container.x = CANVAS_WIDTH;
         s_oStage.addChild(container);
         createjs.Tween.get(container).to({x: 0}, 1000, createjs.Ease.linear).call(function () {
+            _p4shan1.x = -1500;
+            shanTw1 = createjs.Tween.get(_p4shan1, {loop: true}).to({
+                x: 0
+            }, 3000, createjs.Ease.linear).call(function () {
+
+            });
+            shanTw2 = createjs.Tween.get(_p4shan2, {loop: true}).to({
+                x: 1500
+            }, 3000, createjs.Ease.linear).call(function () {
+
+            });
+
             createjs.Tween.get(x).to({x: 662, y: 1080}, 500, createjs.Ease.backInOut).call(function () {
                 x.on("mousedown", _page4.goToNext);
-                createjs.Sound.play("p4", {loop: -1});
                 createjs.Tween.get(x, {loop: true}).to({
                     scaleX: 1.5,
                     scaleY: 1.5

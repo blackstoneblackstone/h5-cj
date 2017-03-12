@@ -163,7 +163,7 @@ function curlGet($url)
     <div id="city" class="animated fadeInDownBig"
          style="display:none;position: absolute;top:0;left: 0;right: 0;z-index: 99;background: url(sprites/f-bg.jpg);background-size: 100%">
         <div style="font-size: 20px;padding: 30px;color: #b4252d">
-            关注公众号,点击"回家有礼"菜单,有机会获得王府井集团提供的精美礼品一份，数量有限，先到先得
+            关注公众号,点击"回家过年"菜单,有机会获得王府井集团提供的精美礼品一份，数量有限，先到先得
         </div>
         <hr style="background-color: #ffffff;margin-bottom: 20px">
         <div class="weui-flex">
@@ -201,6 +201,14 @@ function curlGet($url)
                 <img src="qcode/29.jpg">
                 <span>长安商场</span>
             </div>
+            <div>
+                <img src="qcode/35.jpg">
+                <span>北京赛特奥莱</span>
+            </div>
+            <div>
+                <img src="qcode/38.jpg">
+                <span>王府井购物中心右安门店</span>
+            </div>
         </div>
         <div id="baotou" class="city-item">
             (包头)
@@ -211,17 +219,6 @@ function curlGet($url)
             <div>
                 <img src="qcode/2.jpg">
                 <span>包头王府井百货青山店</span>
-            </div>
-        </div>
-        <div id="chengdu" class="city-item">
-            (成都)
-            <div>
-                <img src="qcode/4.jpg">
-                <span>成都王府井百货</span>
-            </div>
-            <div>
-                <img src="qcode/5.jpg">
-                <span>成都王府井购物中心</span>
             </div>
         </div>
         <div id="chongqing" class="city-item">
@@ -336,6 +333,10 @@ function curlGet($url)
                 <img src="qcode/25.jpg">
                 <span>西安王府井百货南门店</span>
             </div>
+            <div>
+                <img src="qcode/40.jpg">
+                <span>西安王府井熙地港店</span>
+            </div>
         </div>
         <div id="xining" class="city-item">
             (西宁)
@@ -346,13 +347,6 @@ function curlGet($url)
             <div>
                 <img src="qcode/27.jpg">
                 <span>西宁王府井百货中心广场店</span>
-            </div>
-        </div>
-        <div id="yinchuan" class="city-item">
-            (银川)
-            <div>
-                <img src="qcode/28.jpg">
-                <span>银川王府井百货</span>
             </div>
         </div>
         <div id="changsha" class="city-item">
@@ -373,6 +367,40 @@ function curlGet($url)
                 <span>郑州王府井百货</span>
             </div>
         </div>
+        <div id="xiamen" class="city-item">
+            (厦门)
+            <div>
+                <img src="qcode/33.jpg">
+                <span>厦门巴黎春天百货嘉禾店</span>
+            </div>
+            <div>
+                <img src="qcode/34.jpg">
+                <span>厦门巴黎春天百货中山店</span>
+            </div>
+        </div>
+
+        <div id="shenyang" class="city-item">
+            (沈阳)
+            <div>
+                <img src="qcode/36.jpg">
+                <span>沈阳赛特奥莱</span>
+            </div>
+        </div>
+        <div id="nanning" class="city-item">
+            (南宁)
+            <div>
+                <img src="qcode/41.jpg">
+                <span>南宁王府井奥莱</span>
+            </div>
+        </div>
+        <div id="zhengzhou" class="city-item">
+            (郑州)
+            <div>
+                <img src="qcode/42.jpg">
+                <span>郑州王府井百货</span>
+            </div>
+        </div>
+
         <div style="width: 100%;margin-bottom: 30px;margin-top:20px;text-align: center">
             <img src="sprites/logo.png" style="height:40px;margin-right: auto;margin-left: auto">
         </div>
@@ -415,7 +443,7 @@ function curlGet($url)
 <script type="text/javascript" src="lib/jweixin-1.0.0.js"></script>
 <script type="text/javascript" src="http://int.dpool.sina.com.cn/iplookup/iplookup.php?format=js"></script>
 <script type="text/javascript" src="lib/weui.min.js"></script>
-<script type="text/javascript" src="js/friends.js"></script>
+<script type="text/javascript" src="js/friends.js?v=4"></script>
 <script type="text/javascript" src="http://pingjs.qq.com/h5/stats.js" name="MTAH5" sid="500387182" ></script>
 <script type="text/javascript">
 
@@ -429,6 +457,7 @@ function curlGet($url)
             imgUrl: 'http://www.wexue.top/games/cj/sprites/page1.png', // 分享图标
             success: function () {
                 MtaH5.clickShare('timelineshare');
+                MtaH5.clickShare('timelineshare');
             },
             cancel: function () {
             }
@@ -441,6 +470,7 @@ function curlGet($url)
             type: 'link', // 分享类型,music、video或link，不填默认为link
             dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
             success: function () {
+                MtaH5.clickShare('msgshare');
                 MtaH5.clickShare('msgshare');
             },
             cancel: function () {

@@ -103,7 +103,7 @@ function CPage5() {
                             type: 'link', // 分享类型,music、video或link，不填默认为link
                             dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
                             success: function () {
-                                // 用户确认分享后执行的回调函数
+                                MtaH5.clickStat('msgshare');
                             },
                             cancel: function () {
                                 // 用户取消分享后执行的回调函数
@@ -192,12 +192,12 @@ function CPage5() {
         p5recordup.getButtonImage().alpha = 0;
         wx.startRecord({
             fail: function () {
-                showFail("您的客户端不支持录音");
+                showFail("微信好像不能录音,您是不是没有打开录音权限呢");
             }
         });
         wx.onVoiceRecordEnd({
             fail: function () {
-                showFail("您的客户端不支持录音");
+                showFail("微信好像不能录音,您是不是没有打开录音权限呢");
             },
             complete: function (res) {
                 _recordId = res.localId;

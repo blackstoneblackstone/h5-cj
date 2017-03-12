@@ -100,16 +100,19 @@ function curlGet($url)
             "有钱没钱,回家过年!",
             "买回家的火车票了吗?"
         ];
-
+        function audioAutoPlay(id){
+            document.addEventListener("WeixinJSBridgeReady", function () {
+                var audio = document.getElementById(id);
+                audio.play();
+            }, false);
+        }
+        audioAutoPlay('music');
     </script>
 </head>
 <body ondragstart="return false;" ondrop="return false;">
 <div id="header"
-     style="z-index:999;text-align:center;font-size:20px;display:none;position: absolute;top:0;right: 0;left: 0;height: 50px;line-height: 50px;background-color: rgba(255,0,0,.5);color: #ffffff;">
+     style="z-index:999;text-align:center;font-size:20px;display:none;position: absolute;top:0;right: 0;left: 0;height: 60px;line-height: 60px;background-color: rgba(255,0,0,.3);color: #ffffff;">
 
-</div>
-<div id="loading" style="position: absolute;top:220px;text-align: center;width: 100%">
-    <!--    <img src="sprites/loading.gif" style="height: 150px;margin-left: auto;margin-right: auto">-->
 </div>
 <div style=display:none;font-weight:100;font-family:
 "PingFang SC", "Lantinghei SC", "Helvetica Neue", Helvetica, Arial, "Microsoft YaHei", 微软雅黑, STHeitiSC-Light, simsun,
@@ -122,19 +125,38 @@ function curlGet($url)
 <canvas id="canvas" class='ani_hack' width="750" height="1330"
         style="position:absolute;z-index:10;height: 100%;width: 100%;">
 </canvas>
+<img id="musicbtn" src="sprites/music1.png" style="position: absolute;top: 50px;right: 50px;z-index: 9999;">
+<audio id="music" src="sounds/bgmp3.mp3" preload="auto" autoplay="autoplay" loop="loop"></audio>
 <script type="text/javascript" src="lib/jquery-2.0.3.min.js"></script>
 <script type="text/javascript" src="lib/createjs-2014.12.12.min.js"></script>
 <script type="text/javascript" src="lib/jweixin-1.0.0.js"></script>
-<script type="text/javascript" src="js/index.js"></script>
-
 <script>
-    $(function () {
-        new CMain();
-    });
+    var _mtac = {"performanceMonitor":1};
+    (function() {
+        var mta = document.createElement("script");
+        mta.src = "http://pingjs.qq.com/h5/stats.js?v2.0.2";
+        mta.setAttribute("name", "MTAH5");
+        mta.setAttribute("sid", "500387182");
+        mta.setAttribute("cid", "500388882");
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(mta, s);
+    })();
 </script>
-<script type="text/javascript" src="http://pingjs.qq.com/h5/stats.js" name="MTAH5" sid="500387182"></script>
+<script type="text/javascript" src="js/index.js?v=2"></script>
 <script type="text/javascript">
 
+    var playState = true;
+    $("#musicbtn").click(function () {
+        if (playState) {
+            document.getElementById("music").pause();
+            $("#musicbtn").attr("src","sprites/music2.png");
+            playState = false;
+        } else {
+            document.getElementById("music").play();
+            $("#musicbtn").attr("src","sprites/music1.png");
+            playState = true;
+        }
+    });
     $.get("http://www.wexue.top:25000/spring/user", {
         openid: openid,
         avatar: '',
@@ -148,12 +170,13 @@ function curlGet($url)
         <?php echo $wxParams;?>
     );
     wx.ready(function () {
+        new CMain();
         wx.onMenuShareTimeline({
             title: '过年了,等你回家', // 分享标题
             link: 'http://www.wexue.top/games/cj/index.php', // 分享链接
             imgUrl: 'http://www.wexue.top/games/cj/sprites/page1.png', // 分享图标
             success: function () {
-                MtaH5.clickShare('timelineshare');
+                MtaH5.clickStat('timelineshare');
             },
             cancel: function () {
             }
@@ -166,7 +189,7 @@ function curlGet($url)
             type: 'link', // 分享类型,music、video或link，不填默认为link
             dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
             success: function () {
-                MtaH5.clickShare('msgshare');
+                MtaH5.clickStat('msgshare');
             },
             cancel: function () {
                 // 用户取消分享后执行的回调函数
@@ -174,6 +197,12 @@ function curlGet($url)
         });
     });
 
+</script>
+
+<script>
+//    $(function () {
+//        new CMain();
+//    });
 </script>
 </body>
 </html>

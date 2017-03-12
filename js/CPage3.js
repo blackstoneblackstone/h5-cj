@@ -217,6 +217,7 @@ function CPage3() {
     }
     this.goToNext = function () {
         _page3.unload();
+        createjs.Sound.play("p4", {loop: -1});
     }
     _page3 = this;
     this.init();

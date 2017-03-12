@@ -6,7 +6,7 @@ var playState = false;
 audioMain.jPlayer({
     ready: function (event) {
         $(this).jPlayer("setMedia", {
-            mp3: "http://www.wexue.top/games/cj/record/" + mid + ".mp3"
+            mp3: "http://www.wexue.top/games/cj/mp3/" + mid + ".mp3"
         });
         $("#header").fadeOut();
         playState = true;
@@ -38,11 +38,7 @@ $(function () {
         label: '长沙',
         value: 'changsha'
     }, {
-        label: '银川',
-        value: 'yinchuan'
-    }, {
         label: '西宁',
-        disabled: true,
         value: 'xining'
     }, {
         label: '西安',
@@ -87,17 +83,31 @@ $(function () {
         label: '重庆',
         value: 'chongqing'
     }, {
-        label: '成都',
-        value: 'chengdu'
-    }, {
         label: '包头',
         value: 'baotou'
+    }, {
+        label: '厦门',
+        value: 'xiamen'
+    }, {
+        label: '沈阳',
+        value: 'shenyang'
+    }, {
+        label: '南宁',
+        value: 'nanning'
+    }, {
+        label: '郑州',
+        value: 'zhengzhou'
     }];
 
+    var citystate=true;
     for (var i = 0; i < cityArray.length; i++) {
         if (city == cityArray[i].label) {
             $("#" + cityArray[i].value).show();
+            citystate=false;
         }
+    }
+    if(citystate){
+        $("#beijing").show();
     }
     $('#selectCity').on('click', function () {
         weui.picker(cityArray, {
